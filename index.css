@@ -1,0 +1,94 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: monospace;
+}
+body{
+   background: black;
+}
+.buttons{
+   margin: 50px;
+}
+.buttons button{
+   background: #3dff4ae6;
+   color: white;
+   width: 150px;
+   height: 40px;
+   border: none;
+   outline: none;
+   border-radius: 5px;
+   font-size: 19px;
+   font-weight: bold;
+   cursor: pointer;
+   margin: 10px;
+}
+#toast-box{
+   position: absolute;
+   bottom: 30px;
+   right: 30px;
+   display: flex;
+   align-items: flex-end;
+   flex-direction: column;
+   overflow: hidden;
+   padding: 20px;
+}
+.toast{
+   color: black;
+   background: white;
+   width: 400px;
+   height: 80px;
+   font-size: 17px;
+   font-weight: 500;
+   margin: 15px 0;
+   box-shadow: 0 1px 20px rgba(255, 255, 255, 0.365);
+   border-radius: 5px;
+   display: flex;
+   align-items: center;
+   position: relative;
+   transform: translateX(100%);
+   animation: moveleft 0.3s linear forwards;
+}
+
+@keyframes moveleft {
+   100%{
+      transform: translateX(0);
+   }
+}
+
+.toast i{
+   margin: 0 20px;
+   font-size: 30px;
+   color: green;
+}
+.toast.error i{
+   color: red;
+}
+.toast.invalid i{
+   color: orange;
+}
+
+.toast::after{
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 5px;
+   border-radius: 5px;
+   background: green;
+   animation: anim 5s linear forwards;
+}
+
+@keyframes anim {
+   100%{
+      width: 0;
+   }
+}
+
+.toast.error::after{
+   background: red;
+}
+.toast.invalid::after{
+   background: orange;
+}
